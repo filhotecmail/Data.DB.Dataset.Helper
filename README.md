@@ -8,14 +8,17 @@ Helpers é um recurso muito poderoso do Delphi e em outras linguagens, adicionam
  Para encurtar o caminho e tornar nosso desenvolvimento mais veloz, adicionei um novo método a classe Data.DB.TDataset, um método Field<T> Genérico.
 
  ```Delphi
-   Function Field<T>(AFieldName: String ):T; overload;
+   function Field<T>(AFieldName: String; AValue:Variant ):TDataset; overload;
   ```
 Abaixo uns exemplos de uso.
 ```
-with DBClientes do
- begin
- Field<Integer>('ID');
- Field<String>('Nome');
- Field<TDateTime>('data');
- end;
+DBClientes
+  .Append
+  .Field<String>('Nome','Marcelo')
+  .Field<Integer>('ID',10)
+  .post
+  .Append
+  .Field<String>('Nome','Luciana')
+  .Field<Integer>('ID',11)
+  .post;
 ```
