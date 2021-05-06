@@ -42,7 +42,6 @@ Para simplificar o while em um TDataset , estou disponibilizando um Método cham
 
 ```Delphi
 // A Foreach Exmplo
-  // A Foreach Exmplo
    DBClientes
     .ForEach(
     procedure
