@@ -7,7 +7,7 @@ interface
 
   type TDatasetHelper = class Helper for Data.DB.TDataset
        public
-       function Field<T>(AFieldName: String; AValue:Variant ):TDataset; overload;
+       function FieldSet<T>(AFieldName: String; AValue:Variant ):TDataset; overload;
        function Field( AFieldName: String ):TFIeld; overload;
        function InsertArrayRecords(const Values: TArray<TConstArray>):TDataset; overload;
        function Append:TDataset;
@@ -30,7 +30,7 @@ begin
  Result := FieldByName(AFieldName)
 end;
 
-function TDatasetHelper.Field<T>(AFieldName: String; AValue:Variant): TDataset;
+function TDatasetHelper.FieldSet<T>(AFieldName: String; AValue:Variant): TDataset;
 begin
  Result:= Self;
  Field(AFieldName).Value := AValue;

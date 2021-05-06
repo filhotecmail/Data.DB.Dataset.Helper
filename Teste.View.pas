@@ -55,14 +55,15 @@ end;
 
 procedure TForm3.Button2Click(Sender: TObject);
 begin
+ {Setando Valores}
  DBClientes
   .Append
-  .Field<String>('Nome','Marcelo')
-  .Field<Integer>('ID',10)
+  .FieldSet<String>('Nome','Marcelo')
+  .FieldSet<Integer>('ID',10)
   .post
   .Append
-  .Field<String>('Nome','Luciana')
-  .Field<Integer>('ID',11)
+  .FieldSet<String>('Nome','Luciana')
+  .FieldSet<Integer>('ID',11)
   .post;
 end;
 
