@@ -19,7 +19,9 @@ type
     DataSource1: TDataSource;
     Button1: TButton;
     Button2: TButton;
+    Button3: TButton;
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -65,6 +67,23 @@ begin
   .FieldSet<String>('Nome','Luciana')
   .FieldSet<Integer>('ID',11)
   .post;
+
+  DBClientes.Field('Nome').Asstring;
+
+
+end;
+
+procedure TForm3.Button3Click(Sender: TObject);
+begin
+ // A Foreach Exmplo
+   DBClientes
+    .ForEach(
+    procedure
+    (Arg: TDataset)
+    begin
+     // Sua Lógica dentro do Loop
+     ShowMessage(  Arg.Field('Nome').AsString );
+    end);
 end;
 
 end.

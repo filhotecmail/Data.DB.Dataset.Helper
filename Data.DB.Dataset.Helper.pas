@@ -8,6 +8,7 @@ interface
   type TDatasetHelper = class Helper for Data.DB.TDataset
        public
        function FieldSet<T>(AFieldName: String; AValue:Variant ):TDataset; overload;
+       function ForEach(ACallback: TProc<TDataset>):TDataset;
        function Field( AFieldName: String ):TFIeld; overload;
        function InsertArrayRecords(const Values: TArray<TConstArray>):TDataset; overload;
        function Append:TDataset;
@@ -16,6 +17,8 @@ interface
 
 
 implementation
+
+   var BookMark: TBookmark;
 
 { TFieldHelper }
 
@@ -34,6 +37,25 @@ function TDatasetHelper.FieldSet<T>(AFieldName: String; AValue:Variant): TDatase
 begin
  Result:= Self;
  Field(AFieldName).Value := AValue;
+end;
+
+function TDatasetHelper.ForEach(ACallback: TProc<TDataset>): TDataset;
+begin
+  Result := Self;
+  Bookmark := GetBookmark;
+  DisableControls;
+  try
+    First;
+    while not Eof do
+    begin
+     if  Assigned(ACallback) then
+          ACallback(Self);
+     Next;
+    end;
+  finally
+    GotoBookmark(Bookmark);
+    EnableControls;
+  end;
 end;
 
 function TDatasetHelper.InsertArrayRecords(const Values: TArray<TConstArray>): TDataset;

@@ -2,8 +2,8 @@ object Form3: TForm3
   Left = 0
   Top = 0
   Caption = 'Form3'
-  ClientHeight = 351
-  ClientWidth = 790
+  ClientHeight = 456
+  ClientWidth = 1063
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -51,6 +51,15 @@ object Form3: TForm3
     TabOrder = 3
     OnClick = Button2Click
   end
+  object Button3: TButton
+    Left = 767
+    Top = 32
+    Width = 288
+    Height = 25
+    Caption = 'ForEach exemplo'
+    TabOrder = 4
+    OnClick = Button3Click
+  end
   object DBClientes: TClientDataSet
     PersistDataPacket.Data = {
       580000009619E0BD010000001800000004000000000003000000580002494404
@@ -78,7 +87,7 @@ object Form3: TForm3
   object DataSource1: TDataSource
     AutoEdit = False
     DataSet = DBClientes
-    Left = 632
-    Top = 256
+    Left = 1008
+    Top = 400
   end
 end
