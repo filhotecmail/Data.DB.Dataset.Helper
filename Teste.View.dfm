@@ -41,7 +41,6 @@ object Form3: TForm3
     Height = 25
     Caption = 'Button1'
     TabOrder = 2
-    OnClick = Button1Click
   end
   object Button2: TButton
     Left = 432

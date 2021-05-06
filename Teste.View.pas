@@ -19,7 +19,6 @@ type
     DataSource1: TDataSource;
     Button1: TButton;
     Button2: TButton;
-    procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
@@ -54,24 +53,17 @@ begin
  end;
 end;
 
-procedure TForm3.Button1Click(Sender: TObject);
-begin
-  with DBClientes do
- begin
- ShowMessage(Field<Integer>('ID').ToString);
- ShowMessage(Field<String>('Nome'));
- ShowMessage(DateTostr(Field<TDateTime>('data')));
- end;
-end;
-
 procedure TForm3.Button2Click(Sender: TObject);
 begin
  DBClientes
-  .Insertrecords(
-  [ [8,'Areovaldo quaresma',now,Now],
-    [9,'MarceloBispo',now,Now],
-    [10,'Chicago Bulls',now,Now]
-  ]);
+  .Append
+  .Field<String>('Nome','Marcelo')
+  .Field<Integer>('ID',10)
+  .post
+  .Append
+  .Field<String>('Nome','Luciana')
+  .Field<Integer>('ID',11)
+  .post;
 end;
 
 end.

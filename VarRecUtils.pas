@@ -12,7 +12,7 @@ function CopyVarRec(const Item: TVarRec): TVarRec;
 
 // Creates a TConstArray out of the values given. Uses CopyVarRec
 // to make copies of the original elements.
-function CreateConstArray(const Elements: array of const): TConstArray;
+function Values(const Elements: array of const): TConstArray;
 
 // TVarRecs created by CopyVarRec must be finalized with this function.
 // You should not use it on other TVarRecs.
@@ -44,7 +44,7 @@ begin
     vtString:
       begin
         // Improvement suggestion by Hallvard Vassbotn: only copy real length.
-        Result.VString := GetMem(Length(Item.VString^) + 1);
+        //Result.VString := GetMem(Length(Item.VString^) + 1);
         Result.VString^ := Item.VString^;
       end;
     vtPChar:
@@ -104,7 +104,7 @@ begin
   end;
 end;
 
-function CreateConstArray(const Elements: array of const): TConstArray;
+function Values(const Elements: array of const): TConstArray;
 var
   I: Integer;
 begin
