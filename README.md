@@ -16,7 +16,10 @@ Helpers é um recurso muito poderoso do Delphi e em outras linguagens, adicionam
  Para encurtar o caminho e tornar nosso desenvolvimento mais veloz, adicionei um novo método a classe Data.DB.TDataset, um método Field<T> Genérico.
 
  ```Delphi
+   {Utilize para setar Valores no TField de Forma mais Curta e concisa}
    function FieldSet<T>(AFieldName: String; AValue:Variant ):TDataset; overload;
+   {recipera o TField}
+   function Field( AFieldName: String ):TFIeld; overload;
   ```
 Abaixo uns exemplos de uso.
 ```
