@@ -36,4 +36,21 @@ DBClientes
 Recuperando o TField de forma mais Curta 
 ```
 DBClientes.Field('Nome').Asstring;
-```  
+``` 
+# ForEach para TDataset - Simplificando o Loop em um TDatatet
+Para simplificar o while em um TDataset , estou disponibilizando um Método chamado ForEach equivalente a outras linguagens , onde passa como callBack o Proprio Dataset que estamos percorrendo.
+
+```Delphi
+// A Foreach Exmplo
+   DBClientes
+    .ForEach(
+    procedure
+    (Arg: TDataset)
+    begin
+     // Sua Lógica dentro do Loop
+
+
+    end);
+```
+   
+Percorrendo um Dataset de forma Simplificada 
