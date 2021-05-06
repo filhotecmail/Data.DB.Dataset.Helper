@@ -23,10 +23,10 @@ Abaixo uns exemplos de uso.
 DBClientes
   .Append
   .Field<String>('Nome','Marcelo')
-  .Field<Integer>('ID',10)
+  .Field<Integer>('Numero',10)
   .post
   .Append
   .Field<String>('Nome','Luciana')
-  .Field<Integer>('ID',11)
+  .Field<Integer>('Numero',11)
   .post;
 ```
