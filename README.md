@@ -42,13 +42,15 @@ Para simplificar o while em um TDataset , estou disponibilizando um Método cham
 
 ```Delphi
 // A Foreach Exmplo
+  // A Foreach Exmplo
    DBClientes
     .ForEach(
     procedure
     (Arg: TDataset)
     begin
-     // Sua Lógica dentro do Loop
 
+     // Sua Lógica dentro do Loop
+     ShowMessage(  Arg.Field('Nome').AsString );
 
     end);
 ```
