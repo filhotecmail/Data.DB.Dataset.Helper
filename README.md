@@ -30,3 +30,7 @@ DBClientes
   .FieldSet<Integer>('ID',11)
   .post;
 ```
+Recuperando o TField de forma mais Curta 
+```
+DBClientes.Field('Nome').Asstring;
+```  
